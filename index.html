@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VeyMora Movie Bot | Telegram Movie & TV Search</title>
+  <meta name="description" content="VeyMora Movie Bot helps Telegram users search for movies and TV series. Open the bot or join the VeyMora Movies Family community.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://veymora.pages.dev/">
+  <meta property="og:title" content="VeyMora Movie Bot">
+  <meta property="og:description" content="Search movies and TV series on Telegram with VeyMora.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://veymora.pages.dev/">
+  <style>
+    :root {
+      --bg: #080b14;
+      --card: rgba(19, 24, 40, 0.82);
+      --card-border: rgba(255,255,255,.09);
+      --text: #f5f7ff;
+      --muted: #aeb6ca;
+      --accent: #7c5cff;
+      --accent2: #25b8ff;
+      --shadow: 0 22px 70px rgba(0,0,0,.38);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(124,92,255,.23), transparent 34%),
+        radial-gradient(circle at 85% 20%, rgba(37,184,255,.16), transparent 30%),
+        linear-gradient(180deg, #080b14 0%, #0b1020 48%, #080b14 100%);
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 22px 0; }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px; }
+    .logo {
+      width: 42px; height:42px; border-radius:12px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 30px rgba(72,92,255,.3);
+      font-size: 19px;
+    }
+    .navlink { color: var(--muted); font-size:14px; }
+    .hero { padding: 72px 0 54px; text-align:center; }
+    .badge {
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
+      border:1px solid var(--card-border); background: rgba(255,255,255,.04);
+      border-radius:999px; color:#dce2f4; font-size:13px;
+    }
+    h1 { font-size: clamp(42px, 7vw, 78px); line-height: .98; letter-spacing:-.045em; margin:20px auto 20px; max-width:850px; }
+    .gradient { background: linear-gradient(90deg, #fff, #b8a9ff 48%, #80ddff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .lead { max-width:700px; margin:0 auto; color:var(--muted); font-size:clamp(16px,2.5vw,20px); line-height:1.65; }
+    .actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:52px; padding:0 22px; border-radius:14px; font-weight:750; transition:transform .18s ease, opacity .18s ease; }
+    .btn:hover { transform:translateY(-2px); opacity:.94; }
+    .primary { background:linear-gradient(135deg,var(--accent),#5e75ff); box-shadow:0 12px 32px rgba(91,79,255,.28); }
+    .secondary { border:1px solid var(--card-border); background:rgba(255,255,255,.045); }
+    .section { padding:55px 0; }
+    .section h2 { font-size:clamp(28px,4vw,42px); margin:0 0 12px; letter-spacing:-.025em; }
+    .section-intro { color:var(--muted); max-width:680px; line-height:1.6; margin:0 0 28px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { background:var(--card); border:1px solid var(--card-border); border-radius:20px; padding:24px; box-shadow:var(--shadow); backdrop-filter:blur(14px); }
+    .icon { font-size:28px; margin-bottom:16px; }
+    .card h3 { margin:0 0 8px; font-size:19px; }
+    .card p { margin:0; color:var(--muted); line-height:1.65; font-size:15px; }
+    .cta { margin:30px 0 15px; border-radius:26px; padding:36px; background:linear-gradient(135deg,rgba(124,92,255,.17),rgba(37,184,255,.09)); border:1px solid var(--card-border); text-align:center; }
+    .cta p { color:var(--muted); margin:10px auto 22px; max-width:640px; line-height:1.6; }
+    .links { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+    .pill { border:1px solid var(--card-border); background:rgba(255,255,255,.04); padding:10px 14px; border-radius:999px; color:#d9dff0; font-size:14px; }
+    .faq { display:grid; gap:12px; }
+    details { background:rgba(255,255,255,.035); border:1px solid var(--card-border); border-radius:15px; padding:16px 18px; }
+    summary { cursor:pointer; font-weight:700; }
+    details p { color:var(--muted); line-height:1.6; margin:12px 0 2px; }
+    footer { padding:28px 0 42px; color:#7f89a4; font-size:13px; text-align:center; }
+    @media (max-width: 800px) { .grid { grid-template-columns:1fr; } .hero { padding-top:50px; } .navlink { display:none; } .cta { padding:28px 20px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#top" aria-label="VeyMora home"><span class="logo">VM</span><span>VeyMora</span></a>
+        <a class="navlink" href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <span class="badge">● VeyMora Movie Bot · Telegram</span>
+        <h1><span class="gradient">Find movies & TV series</span> on Telegram.</h1>
+        <p class="lead">Use VeyMora to search titles quickly on Telegram, then join the VeyMora Movies Family community for updates, help, and announcements.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://t.me/VeyMoraMovieBot" target="_blank" rel="noopener">🔎 Open @VeyMoraMovieBot</a>
+          <a class="btn secondary" href="https://t.me/VeyMoraMoviesFamily" target="_blank" rel="noopener">👥 Join @VeyMoraMoviesFamily</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>VeyMora in one place</h2>
+        <p class="section-intro">A simple entry point for people looking for the VeyMora Telegram bot and its community.</p>
+        <div class="grid">
+          <article class="card"><div class="icon">🔎</div><h3>Movie search</h3><p>Search for movie and TV titles through the VeyMora Telegram bot.</p></article>
+          <article class="card"><div class="icon">📺</div><h3>Movies & series</h3><p>Find titles across different categories and explore the results available through the bot.</p></article>
+          <article class="card"><div class="icon">👥</div><h3>Community</h3><p>Join VeyMora Movies Family for announcements, support, and community updates.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="cta">
+          <h2>Start with VeyMora</h2>
+          <p>Open the bot for searching, or join the community to stay connected with VeyMora updates.</p>
+          <div class="actions" style="margin-top:0">
+            <a class="btn primary" href="https://t.me/VeyMoraMovieBot" target="_blank" rel="noopener">🚀 Start Bot</a>
+            <a class="btn secondary" href="https://t.me/VeyMoraMoviesFamily" target="_blank" rel="noopener">💬 Open Community</a>
+          </div>
+        </div>
+        <div class="links" aria-label="Topics">
+          <span class="pill">VeyMora Movie Bot</span>
+          <span class="pill">Telegram Movie Search</span>
+          <span class="pill">Telugu Movies</span>
+          <span class="pill">Hindi Movies</span>
+          <span class="pill">Indian Movies</span>
+          <span class="pill">TV Series</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <details><summary>What is VeyMora Movie Bot?</summary><p>VeyMora Movie Bot is a Telegram bot for searching movie and TV titles.</p></details>
+          <details><summary>Where do I open VeyMora?</summary><p>Open the bot at <a href="https://t.me/VeyMoraMovieBot" target="_blank" rel="noopener">t.me/VeyMoraMovieBot</a>.</p></details>
+          <details><summary>Where is the VeyMora community?</summary><p>Join <a href="https://t.me/VeyMoraMoviesFamily" target="_blank" rel="noopener">VeyMora Movies Family</a> on Telegram.</p></details>
+          <details><summary>Which languages does VeyMora support?</summary><p>VeyMora can be used for searches across Indian-language and international movie/TV titles, subject to the results available through the bot.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 VeyMora · Telegram bot and community</div>
+  </footer>
+</body>
+</html>
